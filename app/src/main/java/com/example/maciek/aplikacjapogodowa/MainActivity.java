@@ -1,5 +1,6 @@
 package com.example.maciek.aplikacjapogodowa;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         Button Button_Name=findViewById(R.id.ZmienMiejsce);
         final EditText Edit_Name=findViewById(R.id.Write_text);
         final TextView Text_Name=findViewById(R.id.Show_City);
+        Button Button_show= findViewById(R.id.PokazListe);
+        final Intent intent = new Intent(this, Main2Activity.class);
 
         Button_Name.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -23,5 +26,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button_show.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                startActivity(intent);
+            }
+        });
     }
 }

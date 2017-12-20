@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="207dp"
+        android:layout_height="42dp"
+        android:text="Lista aktualnie nie jest dostępna"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="172dp"
+        android:layout_height="36dp"
+        android:text="Kliknąłeś w istę miejsc"
+        android:textColor="@android:color/background_light"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="198dp" />
+</android.support.constraint.ConstraintLayout>
