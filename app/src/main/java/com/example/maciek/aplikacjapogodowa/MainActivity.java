@@ -19,17 +19,23 @@ public class MainActivity extends AppCompatActivity {
         final TextView Text_Name=findViewById(R.id.Show_City);
         Button Button_show= findViewById(R.id.PokazListe);
         final Intent intent = new Intent(this, Main2Activity.class);
+        final Bundle bundle = new Bundle();
+
+        intent.putExtras(bundle);
 
         Button_Name.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Text_Name.setText(Edit_Name.getText().toString());
+                bundle.putString("klucz" , Text_Name.getText().toString());
             }
         });
 
         Button_show.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                intent.putExtras(bundle);
                 startActivity(intent);
+
             }
         });
     }
