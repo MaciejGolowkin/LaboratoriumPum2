@@ -23,33 +23,27 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.Pokaz_Liste)
     TextView PokazListe;
     @OnClick(R.id.Zmien_Miejsce)
+    public void ShowCity() {
+        Show_City.setText(Write_text.getText().toString());
+        //bundle.putString("klucz" , Show_City.getText().toString());
+    }
+    @OnClick(R.id.Pokaz_Liste)
+    public void ShowList() {
+
+        Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+        startActivity(intent);
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Intent intent = new Intent(this, Main2Activity.class);
-        final Bundle bundle = new Bundle();
         ButterKnife.bind(this);
 
-        intent.putExtras(bundle);
 
 
 
-       /* ZmienMiejsce.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Show_City.setText(Write_text.getText().toString());
-                bundle.putString("klucz" , Show_City.getText().toString());
-            }
-        }); */
-
-        PokazListe.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                intent.putExtras(bundle);
-                startActivity(intent);
-
-            }
-        });
     }
 }
