@@ -61,7 +61,7 @@
         android:singleLine="false" />
 
     <Button
-        android:id="@+id/ZmienMiejsce"
+        android:id="@+id/Zmien_Miejsce"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/background_light"
@@ -69,7 +69,7 @@
         android:textColor="@android:color/holo_blue_bright" />
 
     <Button
-        android:id="@+id/PokazListe"
+        android:id="@+id/Pokaz_Liste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/background_light"
