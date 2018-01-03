@@ -19,18 +19,9 @@
         android:textAlignment="center"
         android:textColor="@android:color/background_light" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="366dp"
-        android:layout_height="42dp"
-        android:text="Lista aktualnie nie jest dostępna"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/textView"
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>
