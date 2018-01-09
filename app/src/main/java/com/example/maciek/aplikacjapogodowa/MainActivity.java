@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button PokazListe;
     @BindView(R.id.imageView)
     ImageView img;
+    @BindView(R.id.Informacja)
+    TextView inf;
     @OnClick(R.id.Zmien_Miejsce)
     public void ShowCity() {
 
@@ -48,14 +50,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Glide.with(this).load("https://www.google.pl/search?client=firefox-b-ab&dcr=0&biw=1536&bih=732&tbm=isch&sa=1&ei=MsVTWtOHDdPVsAGymoGoBQ&q=weather&oq=weather&gs_l=psy-ab.3..0i67k1l2j0j0i67k1j0l6.12409.13832.0.13969.7.4.0.3.3.0.140.341.3j1.4.0....0...1c.1.64.psy-ab..0.7.370....0.jsq9EBlryE0#imgrc=MAr8HqJO9M6blM:").into(img);
+        Glide.with(this).load("https://cbsbaltimore.files.wordpress.com/2016/11/category_weather_500x500.png?w=310&h=310&crop=1").into(img);
         Intent getData = getIntent();
         Bundle bundle = getIntent().getExtras();
-
 
         if (bundle != null) {
             String place = bundle.getString("item");
             Show_City.setText(place);
+            String information= (String) bundle.get("item2");
+            inf.setText(information);
         }
 
 

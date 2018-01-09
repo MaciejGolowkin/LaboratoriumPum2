@@ -23,6 +23,7 @@ public class Main2Activity extends AppCompatActivity  {
     @BindView(R.id.MojText)
     TextView text;
     private String DoDodania;
+    private String Informacja;
     private int position;
 
 
@@ -56,10 +57,13 @@ public class Main2Activity extends AppCompatActivity  {
     OnItemClick listener= (view,position)-> {
 
         DoDodania = Places_List.get(position).getPlaceName();
+        Informacja=Places_List.get(position).getPlaceInformation();
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         Bundle bundle = new Bundle();
 
-        bundle.putString("item", DoDodania);
+        bundle.putString("item2", Informacja);
+        bundle.putString("item",DoDodania);
+
         intent.putExtras(bundle);
         startActivity(intent);
     };
