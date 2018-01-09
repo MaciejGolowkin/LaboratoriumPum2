@@ -1,5 +1,6 @@
 package com.example.maciek.aplikacjapogodowa;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +13,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class Main2Activity extends AppCompatActivity {
+
+public class Main2Activity extends AppCompatActivity  {
 
 
     @BindView(R.id.recyclerView)
@@ -20,7 +22,8 @@ public class Main2Activity extends AppCompatActivity {
 
     @BindView(R.id.MojText)
     TextView text;
-    private String Wstawienie;
+    private String DoDodania;
+    private int position;
 
 
     @Override
@@ -33,7 +36,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
-
+        recycler_View.setHasFixedSize(true);
         Place p1= new Place();
         p1.setPlaceName("Warszawa");
         p1.setPlaceInformation("Pada śnieg");
@@ -43,28 +46,31 @@ public class Main2Activity extends AppCompatActivity {
         Place p3= new Place();
         p3.setPlaceName("Zabrze");
         p3.setPlaceInformation("Pochmurnie");
-        ArrayList<Place> Places_List= new ArrayList<>();
+        final ArrayList<Place> Places_List= new ArrayList<>();
         Places_List.add(p1);
         Places_List.add(p2);
         Places_List.add(p3);
+
+
+
+    OnItemClick listener= (view,position)-> {
+
+        DoDodania = Places_List.get(position).getPlaceName();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putString("item", DoDodania);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    };
+
+
+
+
         recycler_View.setLayoutManager(layout_Manager);
-        PlaceAdapter placeAdapter= new PlaceAdapter(Places_List);
+        PlaceAdapter placeAdapter= new PlaceAdapter(Places_List,listener);
         recycler_View.setAdapter(placeAdapter);
-
-
-
-       /* OnItemClick listener = (view, position) -> {
-
-            Wstawienie = Places_List.get(position).getPlaceName();
-
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            Bundle bundle = new Bundle();
-
-            bundle.putString("item", Wstawienie);
-            intent.putExtras(bundle);
-            startActivity(intent);
-        };
-    */
+    
 
     }
 }

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.OnItemClick;
 
 /**
@@ -20,16 +19,20 @@ import butterknife.OnItemClick;
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder>{
 
     ArrayList<Place> Places_List= new ArrayList<>();
+    private com.example.maciek.aplikacjapogodowa.OnItemClick listener;
 
-    PlaceAdapter(ArrayList<Place> places) {
+
+    PlaceAdapter(ArrayList<Place> places, com.example.maciek.aplikacjapogodowa.OnItemClick listener) {
         Places_List = places;
+        this.listener=listener;
+
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemLayoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.view_of_place, null);
-        return new ViewHolder(itemLayoutView);
+        return new ViewHolder(itemLayoutView,listener);
     }
 
     @Override
@@ -53,12 +56,12 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder>{
 
 
 
-        public OnItemClick listener;
+        public com.example.maciek.aplikacjapogodowa.OnItemClick listener;
 
 
         //Z wykładu
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView, com.example.maciek.aplikacjapogodowa.OnItemClick listener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.listener = listener;
@@ -74,9 +77,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.ViewHolder>{
         {
             Informacja.setText(informacja);
         }
-        @OnClick
+        @Override
         public void onClick(View view) {
-            System.out.println(getAdapterPosition()); //clicked item position
+            listener.onItemClick(view, getAdapterPosition()); //clicked item position
         }
 
 
